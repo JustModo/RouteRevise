@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import MapView, { Marker, Polyline } from "react-native-maps";
+import MapView, { Marker, Polyline, PROVIDER_DEFAULT } from "react-native-maps";
 import * as Location from "expo-location";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import MaterialIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -161,6 +161,7 @@ export default function Map() {
       )}
       {currentLocation && (
         <MapView
+          provider={PROVIDER_DEFAULT}
           style={{ flex: 1, width: "100%", height: 300 }}
           initialRegion={{
             latitude: currentLocation.latitude,

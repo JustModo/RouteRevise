@@ -6,7 +6,7 @@ import {
   Text,
   View,
 } from "react-native";
-import MapView, { Marker, Polyline } from "react-native-maps";
+import MapView, { Marker, PROVIDER_DEFAULT } from "react-native-maps";
 import * as Location from "expo-location";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -81,6 +81,7 @@ export default function MapLocation({ route }) {
       )}
       {currentLocation && (
         <MapView
+          provider={PROVIDER_DEFAULT}
           style={{ flex: 1, width: "100%", height: 300 }}
           initialRegion={{
             latitude: currentLocation.latitude,

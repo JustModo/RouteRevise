@@ -26,4 +26,35 @@ export const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
   },
+  head: {
+    height: 60,
+  },
+  headText: {
+    margin: 6,
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "white",
+  },
+  row: {
+    height: 50,
+  },
+  text1: {
+    margin: 6,
+    textAlign: "center",
+    color: "white",
+    fontSize: 18,
+  },
+  text2: {
+    margin: 6,
+    textAlign: "center",
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  tile: {
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "white",
+    padding: 20,
+  },
 });

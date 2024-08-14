@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, Text, TextInput, View } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { styles } from "./styles";
 import SquareButton from "./components/SquareButton";
 import Tile from "./components/Tile";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import MaterialIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("routerevise.db");
@@ -73,7 +81,7 @@ export default function Dashboard() {
 
   const getRandomValue = () => {
     const randomValue = Math.random();
-    const roundedValue = Math.round(randomValue * 10) / 10;
+    const roundedValue = Math.round(randomValue * 100) / 100;
     return roundedValue;
   };
 
@@ -96,6 +104,7 @@ export default function Dashboard() {
             width={50}
             height={50}
             size={30}
+            onPress={() => nav.navigate("Graph")}
           />
           <SquareButton
             icon={"plus"}
@@ -118,7 +127,6 @@ export default function Dashboard() {
                   icon={"trash-can"}
                   text={"Name"}
                   color={"white"}
-                  onPress={() => {}}
                   key={item.ID}
                   data={{
                     ID: item.ID,
@@ -130,6 +138,7 @@ export default function Dashboard() {
                     frequency: item.Frequency,
                     dates: item.Dates,
                   }}
+                  onPress={() => nav.navigate("Info", { data })}
                 />
               ))}
         </ScrollView>
@@ -143,6 +152,12 @@ export default function Dashboard() {
             onPress={() => randomizeSensorValues()}
           />
         </View>
+        <TouchableOpacity
+          style={{ position: "absolute", right: 20, top: 20 }}
+          onPress={() => nav.goBack()}
+        >
+          <MaterialIcons name={"arrow-left"} size={40} color={"white"} />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

@@ -12,6 +12,8 @@ import SquareButton from "./components/SquareButton";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as SQLite from "expo-sqlite";
+import MaterialIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const db = SQLite.openDatabase("routerevise.db");
 

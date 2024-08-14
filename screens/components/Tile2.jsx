@@ -2,8 +2,11 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { styles } from "../styles";
 import { useEffect, useState } from "react";
+import * as SQLite from "expo-sqlite";
 
-export default function Tile2({ icon, onPress, size, data }) {
+const db = SQLite.openDatabase("routerevise.db");
+
+export default function Tile2({ icon, size, data, onPress }) {
   useEffect(() => {
     setData(data);
   }, [data]);
@@ -70,7 +73,7 @@ export default function Tile2({ icon, onPress, size, data }) {
           borderColor: "white",
           borderRadius: 10,
         }}
-        onPress={onPress ? () => onPress() : () => {}}
+        onPress={onPress ? () => onPress(data.ID) : () => {}}
       >
         <MaterialIcons name={"check"} size={25} color={"lightgreen"} />
       </TouchableOpacity>

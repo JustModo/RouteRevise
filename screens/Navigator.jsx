@@ -7,6 +7,8 @@ import Add from "./Add";
 import MapLocation from "./MapLocation";
 import Viewer from "./Viewer";
 import { NavigationContainer } from "@react-navigation/native";
+import Graph from "./Graph";
+import Info from "./Info";
 const Stack = createStackNavigator();
 
 export default function Navigator() {
@@ -40,6 +42,16 @@ export default function Navigator() {
       <Stack.Screen
         name="Viewer"
         component={Viewer}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Graph"
+        component={Graph}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Info"
+        component={Info}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
